@@ -22,6 +22,7 @@
 
 $MAILER      = "/usr/sbin/sendmail";
 $MAILREPLYTO = "breve-cvs\@lists.sourceforge.net";
+$MAILSUBJECT = "[breve cvs]"
 
 # Constants (don't change these!)
 #
@@ -184,7 +185,7 @@ sub mail_notification {
     print MAIL <<EOF ;
 To: $name
 Reply-To: $MAILREPLYTO
-Subject: [breve cvs]
+Subject: $MAILSUBJECT
 
 EOF
     print MAIL join("\n", @text), "\n";
@@ -317,8 +318,8 @@ while (<STDIN>) {
     if (/^Log Message/)    { $state = $STATE_LOG;     next; }
     if (/^Revision\/Branch/) { /^[^:]+:\s*(.*)/; $branch = $+; next; }
 
-    s/^[ \t\n]+//;		# delete leading whitespace
-    s/[ \t\n]+$//;		# delete trailing whitespace
+    s/^[ \t\n]+// if $state != $STATE_LOG;	# delete leading whitespace
+    s/[ \t\n]+$//;				# delete trailing whitespace
     
     if ($state == $STATE_CHANGED) { push(@changed_files, split); }
     if ($state == $STATE_ADDED)   { push(@added_files,   split); }
