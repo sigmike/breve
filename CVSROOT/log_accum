@@ -22,7 +22,7 @@
 
 $MAILER      = "/usr/sbin/sendmail";
 $MAILREPLYTO = "breve-cvs\@lists.sourceforge.net";
-$MAILSUBJECT = "[breve cvs]"
+$MAILSUBJECT = "[breve cvs]";
 
 # Constants (don't change these!)
 #
