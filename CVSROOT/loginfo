@@ -26,4 +26,4 @@
 # or
 #DEFAULT (echo ""; id; echo %{sVv}; date; cat) >> $CVSROOT/CVSROOT/commitlog
 #breve mail -s '[breve cvs]' breve-cvs@lists.sourceforge.net
-DEFAULT $CVSROOT/CVSROOT/log_accum -m breve-cvs@lists.sourceforge.net -s %s
+#breve $CVSROOT/CVSROOT/log_accum -m breve-cvs@lists.sourceforge.net -s %s
