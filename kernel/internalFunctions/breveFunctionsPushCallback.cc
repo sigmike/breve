@@ -1,7 +1,7 @@
 #include "kernel.h"
 
 #if HAVE_LIBPUSH
-#include "pushC.h"
+#include "push/pushC.h"
 
 struct brPushCallbackData {
 	brMethod *method;

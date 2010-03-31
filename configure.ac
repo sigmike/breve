@@ -134,6 +134,14 @@ case ${host_os} in
 esac
 
 #
+# SDL stuff!
+#
+
+LIBS="${LIBS} `sdl-config --libs`"
+CPPFLAGS="${CPPFLAGS} `sdl-config --cflags`"
+
+
+#
 # Python wants to be dynamically linked as well
 #
 
